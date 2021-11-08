@@ -6,7 +6,11 @@ It's a very basic, unthemed, table-based layout, but it works. It supports posti
 
 ## installing
 It needs some version of PHP (tested on 7, should work on 8) and a MySQL or MariaDB server.
-Create a new MySQL database, import the minibord.sql file, and edit core.php with your MySQL login details
+
+* Create a new MySQL database
+* Import the minibord.sql file to this database
+* Edit core.php with your MySQL login details
+* Make some mini posts
 
 ## demo
 You can view a live demo of it at https://board.rainynight.city
