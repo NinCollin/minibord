@@ -60,7 +60,7 @@ $threads=mysqli_query($sql, "SELECT * FROM `threads` ORDER BY `date` DESC");
 
 //lets create our input table
 print  "<form method=\"post\" action=index.php>
-	<table border=1 width=345>
+	<table border=1 width=345 $themesettings[tableAttributes]>
 	<tr><th colspan=2>create new topic</th></tr>
 	<tr><td>topic name: </td>  <td>&nbsp<input align=right type=text value=\"$whoopsname\" maxlength=100 name=\"name\"></td></tr>
 	<tr><td>human name: </td>  <td>&nbsp<input type=text maxlength=50 value=\"$whoopsuser\" name=\"user\"></td></tr>
@@ -69,7 +69,7 @@ print  "<form method=\"post\" action=index.php>
 	</form>";
 
 //Lets start our threads table
-print  "<table border=1 width=800>
+print  "<table border=1 width=800 $themesettings[tableAttributes]>
 	<th>topic name</th>  <th>human name</th>  <th>last human</td>  <th>last reply</th>  <th># posts</th>";
 
 //lets go through our topic data and spit it out
@@ -106,7 +106,15 @@ while($thread=mysqli_fetch_array($threads))
 	}
 	
 	//spit out all the data in a nice table
-	print "<tr><td><a href=topic.php?id=$thread[id]>$thread[name]</a></td>  <td>$thread[user]</td>  <td>$lasthuman</td>  <td>$lastreplydate</td>  <td width=70>$postnum</td></tr>";
+	print "<tr>
+	  <td><a href=topic.php?id=$thread[id]>$thread[name]</a></td>
+	  <td>$thread[user]</td>
+	  <td>$lasthuman</td>
+	  <td>$lastreplydate</td>
+	  <td width=70>$postnum</td>
+	</tr>
+	";
+
 }
 
 //Lets wrap this table and page up

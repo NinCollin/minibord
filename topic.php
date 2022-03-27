@@ -71,7 +71,7 @@ else if(isset($_POST['text']) && isset($_POST['user']))
 $posts=mysqli_query($sql, "SELECT * FROM `posts` WHERE `threadid` = $id ORDER BY `date`");
 
 //Lets start our table
-print "<table border=1 width=800>";
+print "<table border=1 width=800 $themesettings[tableAttributes]>";
 
 //go through the posts data
 while($post=mysqli_fetch_array($posts))
@@ -87,7 +87,7 @@ while($post=mysqli_fetch_array($posts))
 print "</table><br>";
 
 //Heres our input form so users can add more posts
-print  "<table border=1 width=345>
+print  "<table border=1 width=345 $themesettings[tableAttributes]>
 	<form method=\"post\">
 	<tr><th colspan=2>reply</th></tr>
 	<tr><td>text:</td><td>&nbsp<textarea cols=21 name=\"text\">$whoopstext</textarea></td></tr>
