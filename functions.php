@@ -30,7 +30,7 @@ function printfooter()
 {
 	global $themesettings;
 	
-	print "<br><font size=3>minibord v0.06 with snazzy themes at 1 am edition</font></tt>";
+	print "<br><font size=3>minibord v0.07 with sorted posts at 2 am edition <a href=https://github.com/NinCollin/minibord>(github)</a></font></tt>";
 }
 
 //print a message

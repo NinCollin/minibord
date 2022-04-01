@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 31, 2021 at 03:21 PM
+-- Generation Time: Apr 01, 2022 at 04:17 PM
 -- Server version: 10.3.29-MariaDB-0+deb10u1
 -- PHP Version: 7.3.29-1~deb10u1
 
@@ -39,12 +39,36 @@ CREATE TABLE `posts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `themes`
+--
+
+CREATE TABLE `themes` (
+  `id` smallint(5) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `path` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `themes`
+--
+
+INSERT INTO `themes` (`id`, `name`, `path`) VALUES
+(1, 'White', 'themes/white.php'),
+(2, 'NinCollin\'s Domain (Daily Cycle)', 'themes/domain.php'),
+(3, 'NinCollin\'s Domain (Random)', 'themes/domainrand.php'),
+(4, 'Blue', 'themes/blue.php'),
+(5, 'NinCollin\'s Corner Lite', 'themes/corner.php');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `threads`
 --
 
 CREATE TABLE `threads` (
   `id` mediumint(8) NOT NULL,
   `date` bigint(15) NOT NULL,
+  `lastactivity` bigint(15) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
   `user` varchar(50) NOT NULL,
   `ip` varchar(256) NOT NULL
@@ -58,6 +82,12 @@ CREATE TABLE `threads` (
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `themes`
+--
+ALTER TABLE `themes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -75,6 +105,12 @@ ALTER TABLE `threads`
 --
 ALTER TABLE `posts`
   MODIFY `id` mediumint(8) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `themes`
+--
+ALTER TABLE `themes`
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `threads`

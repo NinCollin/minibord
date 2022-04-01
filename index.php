@@ -21,9 +21,9 @@ if(!empty($_POST['name']) && !empty($_POST['user']))
 	$_POST['user']=htmlspecialchars($_POST['user']);
 
 	//prepared query time; insert dat data!
-	$stmt = mysqli_prepare($sql,"INSERT INTO `threads` ( `date`, `name`, `user`, `ip`) VALUES (?, ?, ?, ?)");
+	$stmt = mysqli_prepare($sql,"INSERT INTO `threads` ( `date`, `lastactivity`, `name`, `user`, `ip`) VALUES (?, ?, ?, ?, ?)");
 	$time=time();	
-	mysqli_stmt_bind_param($stmt,"isss", $time, $_POST['name'], $_POST['user'], $_SERVER['REMOTE_ADDR']);
+	mysqli_stmt_bind_param($stmt,"iisss", $time, $time, $_POST['name'], $_POST['user'], $_SERVER['REMOTE_ADDR']);
 	mysqli_stmt_execute($stmt);
 }
 
@@ -56,12 +56,12 @@ else if(isset($_POST['name']) && isset($_POST['user']))
 
 
 //Now lets grab our topic data and sort by how recently the topic was created (sorting by date of late post will be implemented lat0rz)
-$threads=mysqli_query($sql, "SELECT * FROM `threads` ORDER BY `date` DESC");
+$threads=mysqli_query($sql, "SELECT * FROM `threads` ORDER BY `lastactivity` DESC");
 
 //lets create our input table
 print  "<form method=\"post\" action=index.php>
 	<table border=1 width=345 $themesettings[tableAttributes]>
-	<tr><th colspan=2>create new topic</th></tr>
+	<tr><th colspan=2><font face=verdana size=-2>create new topic</th></tr>
 	<tr><td>topic name: </td>  <td>&nbsp<input align=right type=text value=\"$whoopsname\" maxlength=100 name=\"name\"></td></tr>
 	<tr><td>human name: </td>  <td>&nbsp<input type=text maxlength=50 value=\"$whoopsuser\" name=\"user\"></td></tr>
 	<tr><td colspan=2><input type=submit value=Submit></td></tr>
@@ -70,7 +70,7 @@ print  "<form method=\"post\" action=index.php>
 
 //Lets start our threads table
 print  "<table border=1 width=800 $themesettings[tableAttributes]>
-	<th>topic name</th>  <th>human name</th>  <th>last human</td>  <th>last reply</th>  <th># posts</th>";
+	<th>topic name</th>  <th>human name</th>  <th>last human</td>  <th>last reply</th>  <th nowrap># posts</th>";
 
 //lets go through our topic data and spit it out
 while($thread=mysqli_fetch_array($threads))
@@ -107,10 +107,10 @@ while($thread=mysqli_fetch_array($threads))
 	
 	//spit out all the data in a nice table
 	print "<tr>
-	  <td><a href=topic.php?id=$thread[id]>$thread[name]</a></td>
-	  <td>$thread[user]</td>
-	  <td>$lasthuman</td>
-	  <td>$lastreplydate</td>
+	  <td nowrap><a href=topic.php?id=$thread[id]>$thread[name]</a></td>
+	  <td nowrap>$thread[user]</td>
+	  <td nowrap>$lasthuman</td>
+	  <td nowrap>$lastreplydate</td>
 	  <td width=70>$postnum</td>
 	</tr>
 	";

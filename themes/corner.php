@@ -10,7 +10,7 @@ $themesettings = array(
 	
 	"textColor" => "black",
 	
-	"tableBorderColor" => "#C0C0C0",
+	"tableBorderColor" => "#000000",
 	"tableBackgroundColor" => "#C0C0C0",
 	"tableBackgroundImage" => NULL,
 	"useTableBackgroundImage" => false,

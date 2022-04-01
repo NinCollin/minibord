@@ -38,6 +38,12 @@ if(!empty($_POST['text']) && !empty($_POST['user']))
 	$time=time();	
 	mysqli_stmt_bind_param($stmt,"iisss", $id, $time, $_POST['text'], $_POST['user'], $_SERVER['REMOTE_ADDR']);
 	mysqli_stmt_execute($stmt);
+
+	//now lets update the thread's last activity
+	$stmt = mysqli_prepare($sql,"UPDATE `threads` SET `lastactivity` = ? WHERE `id` = $id");
+	mysqli_stmt_bind_param($stmt,"i", $time);
+	mysqli_stmt_execute($stmt);
+
 }
 
 //If their text field was empty, show an error message
@@ -78,9 +84,9 @@ while($post=mysqli_fetch_array($posts))
 {
 
 	//Print each post; use nl2br() to process line breaks so they look right
-	print  "<tr><td rowspan=2 valign=top>$post[user]</td>
+	print  "<tr><td rowspan=2 valign=top nowrap>$post[user]</td>
 		<td>".nl2br($post['text'],false)."</td></tr>
-		<tr><td>Date: ".date("Y-m-d H:i:s", $post['date'])."</td></tr>";
+		<tr><td nowrap>Date: ".date("Y-m-d H:i:s", $post['date'])."</td></tr>";
 }
 
 //End the post table
