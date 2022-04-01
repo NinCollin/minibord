@@ -61,7 +61,7 @@ $threads=mysqli_query($sql, "SELECT * FROM `threads` ORDER BY `lastactivity` DES
 //lets create our input table
 print  "<form method=\"post\" action=index.php>
 	<table border=1 width=345 $themesettings[tableAttributes]>
-	<tr><th colspan=2><font face=verdana size=-2>create new topic</th></tr>
+	<tr><th colspan=2>create new topic</th></tr>
 	<tr><td>topic name: </td>  <td>&nbsp<input align=right type=text value=\"$whoopsname\" maxlength=100 name=\"name\"></td></tr>
 	<tr><td>human name: </td>  <td>&nbsp<input type=text maxlength=50 value=\"$whoopsuser\" name=\"user\"></td></tr>
 	<tr><td colspan=2><input type=submit value=Submit></td></tr>
