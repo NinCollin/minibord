@@ -54,7 +54,7 @@ function printheader()
 							$links.="<a href=\"index.php?action=markforumread&id=$forumid\">mark forum read</a> ";
 			
 					}
-					$links.="<a href=$headlink[url]>$headlink[name]</a>";
+					$links.="<a href=$headlink[url]>".strtolower($headlink['name'])."</a>";
 				}
 				else if($currentcat>=2)
 				{
@@ -64,7 +64,7 @@ function printheader()
 						$links.=" ";
 					else
 						$links.="<tr><td $themesettings[tdHeaderLinks1Attributes] class=\"tdHeaderLinks2\">";
-					$links.="<a href=$headlink[url]>$headlink[name]</a>";
+					$links.="<a href=$headlink[url]>".strtolower($headlink['name'])."</a>";
 
 
 				}				
