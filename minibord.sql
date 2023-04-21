@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 21, 2023 at 12:22 AM
+-- Generation Time: Apr 21, 2023 at 12:38 PM
 -- Server version: 10.5.18-MariaDB-0+deb11u1
 -- PHP Version: 7.4.33
 
@@ -218,7 +218,6 @@ CREATE TABLE `posts` (
   `text` text NOT NULL,
   `userid` mediumint(8) NOT NULL,
   `disablesmilies` tinyint(1) NOT NULL DEFAULT 0,
-  `disablehtml` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `ip` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
