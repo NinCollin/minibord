@@ -16,14 +16,13 @@ It needs some version of PHP (tested on 7, should work on 8) and a MySQL or Mari
 3. Rename the core.example.php in the corefiles/ folder to core.php, and edit it to you liking (and add your MySQL login info)
 4. Make some mini posts
 
-## updating
+## general update instructions
 1. Make a backup of your core.php file, any custom themes you've made, and a backup of your MySQL database.
 2. Download the [latest release](https://github.com/NinCollin/minibord/releases) of minibord.
-3. Replace existing files in your minibord folder with the ones in the latest release.
+3. Extract all files in this archive over the ones in your minibord folder. If you've made any modifications to any files/images, they will be overritten, so you should back those up first.
 4. Rename the core.example.php file in `corefiles/` to core.php and edit this file to match the configuration options of your original core.php
-5. (If upgrading from v0.07 to v1.03) Delete old files that have been moved to a different folder, i.e. delete layoutgen.php from the root folder when upgrading from v0.07 to v1.03 because this file was moved to `corefiles/`
-6. The theming system is still a work-in-progress, so if you made any custom themes, you may have to edit them when upgrading. Various samples are contained in the `themes/` folder
-7. Download and run the upgrade script on the release page (and then delete that script afterwards)
+5. The theming system is still a work-in-progress, so if you made any custom themes, you may have to edit them when upgrading. Various samples are contained in the `themes/` folder
+6. Follow the additional upgrade instructions on the release page.
 
 ## enabling html 
 minibord v1.03 has optional support for HTML in posts/bio/layouts, but it requires an external library (htmLawed)
