@@ -18,7 +18,7 @@ It needs some version of PHP (tested on 7, should work on 8) and a MySQL or Mari
 
 ## general update instructions
 1. Follow the upgrade instructions on the release page *before* following any of these instructions.
-2. Make a backup of your core.php file, any custom themes you've made, and a backup of your MySQL database.
+2. Make sure you have a backup of your core.php file, any custom themes you've made, and a backup of your MySQL database.
 3. Download the [latest release](https://github.com/NinCollin/minibord/releases) of minibord.
 4. Extract all files in this archive over the ones in your minibord folder. If you've made any modifications to any files/images, they will be overritten, so you should back those up first.
 5. Rename the core.example.php file in `corefiles/` to core.php and edit this file to match the configuration options of your original core.php
