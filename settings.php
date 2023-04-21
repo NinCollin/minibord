@@ -1,7 +1,10 @@
 <?php
 
+$run=1;
+$activefile=__FILE__;
+
 //Require the core file for logins and functions and stuff
-require ('core.php');
+require ('corefiles/core.php');
 
 //print our header
 printheader();
@@ -20,7 +23,7 @@ if(!empty($_POST['submitSettings']))
 else
 {
 	//lets get the list of themes
-	$themes=mysqli_query($sql,"SELECT `id`, `name` FROM `themes`");
+	$themes=mysqli_query($sql,"SELECT `id`, `name` FROM `themes` ORDER BY `displayorder`");
 
 
 	//lets generate a select menu
@@ -42,11 +45,11 @@ else
 
 	//lets create our input table
 	print  "<form method=\"post\" action=settings.php>
-		<table border=1 width=345 $themesettings[tableAttributes]>
-		<tr><th colspan=2>settings</th></tr>
-		<tr><td colspan=2>note: saved to cookies</td></tr>
-		<tr><td>theme: </td>  <td>&nbsp$selectMenu</td></tr>
-		<tr><td colspan=2><input type=submit value=Submit><input type=hidden name=submitSettings value=true</td></tr>
+		<table $themesettings[tableAttributes] class=\"table\">
+		<tr><th colspan=2  $themesettings[thRegularAttributes] class=\"thRegular\">settings</th></tr>
+		<tr><td colspan=2  $themesettings[tdStyle1Attributes] class=\"tdStyle1\">note: saved to cookies</td></tr>
+		<tr><td  $themesettings[tdStyle1Attributes] class=\"tdStyle1\" width=100>theme: </td>  <td  $themesettings[tdStyle1Attributes] class=\"tdStyle1\">&nbsp$selectMenu</td></tr>
+		<tr><td  $themesettings[tdStyle1Attributes] class=\"tdStyle1\">&nbsp;</td><td  $themesettings[tdStyle1Attributes] class=\"tdStyle1\">&nbsp;<input type=submit value=Submit><input type=hidden name=submitSettings value=true</td></tr>
 		</table>
 		</form>";
 }	

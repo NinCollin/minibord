@@ -32,28 +32,41 @@ else
 	$NCDbanner = "images/NCDbanner1.png";
 }
 
-//Now lets populate our theme array
 $themesettings = array(
-	"useImageBanner" => true,
-	"banner" => $NCDbanner, //Use banner based on color scheme
 
-	"backgroundColor" => "$NCDcolorarray[$NCDindex]", //Use color from array based on time of day
-	"backgroundImage" => NULL,
-	"useBackgroundImage" => false,
-
-	"textColor" => $NCDtextcolor,
-
-	"tableBorderColor" => "#000000",
-	"tableBackgroundColor" => "$NCDcolorarray[$NCDindex]", //Use color from array based on time of day
-	"tableBackgroundImage" => NULL,
-	"useTableBackgroundImage" => false,
+	//You can overwrite the default banner with a special one if you choose
+	"useCustomImageBanner" => true,
+	"banner" => $NCDbanner,
 	
-	"bodyAttributes" => "",
-	"useAutoBodyAttributes" => true,
-	"tableAttributes" => "",
-	"useAutoTableAttributes" => true
+	//Most styling should be done through CSS
+	"styletag" => "
+	<style>html * {font-family: monospace;}</style>",
 
+	//Use only if necessary; CSS for styling is preferred
 
+	//Attributes to inject into the <body> tag
+	"bodyAttributes" => "bgcolor=$NCDcolorarray[$NCDindex] text=$NCDtextcolor",
+	
+	//Attributes to inject into <table> <td> and <th> tags
+	"tableAttributes" => "border=1 bgcolor=$NCDcolorarray[$NCDindex]",
+	"thRegularAttributes" => "bgcolor=$NCDcolorarray[$NCDindex]",
+	"thCategoryAttributes" => "bgcolor=$NCDcolorarray[$NCDindex]",
+	"tdStyle1Attributes" => "bgcolor=$NCDcolorarray[$NCDindex]",
+	"tdStyle2Attributes" => "bgcolor=$NCDcolorarray[$NCDindex]",
+
+	//Atributes to inject into the header table tags
+	"tableHeaderAttributes" => "",
+	"tdHeaderBannerAttributes" => "",
+	"tdHeaderLinks1Attributes" => "",
+	"tdHeaderLinks2Attributes" => "",
+	"tdHeaderViewCounterAttributes" => "hidden=true",
+	"tdHeaderTimeAttributes" => "hidden=true",
+	"tdHeaderSpacerAttributes" => "",
+
+	//scheme path
+	"schemePath" => "schemes/classic.php"
+
+	
 );
 	
 ?>
