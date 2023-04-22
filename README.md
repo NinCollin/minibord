@@ -8,6 +8,11 @@ The v1 branch adds user accounts, a slightly revised theming system, smilies, fo
 ![A Classic Theme](https://rainynight.city/linkz/mini1.png)
 ![An AckBord Theme](https://rainynight.city/linkz/mini2.png)
 
+## issues
+For all minibord issues, please head to the **minibord Development Forum** on https://board.rainynight.city 
+
+This site also doubles as a live demo of minibord.
+
 ## installing
 It needs some version of PHP (tested on 7, should work on 8) and a MySQL or MariaDB server.
 
@@ -35,11 +40,6 @@ Do keep in mind that allowing HTML (and by extension CSS) does impose some secur
 3. Edit your core.php and set `$options['enableHTML'] = true;`
 4. Make sure `$options['enablehtmLawed'] = true;` and `$options['htmLawedPath'] = 'lib/htmLawed.php';` (this is the default)
 5. (Optional) Edit `$options['htmLawedconfig']` to your liking (the documentation for various configuration options [is provided here](https://www.bioinformatics.org/phplabware/internal_utilities/htmLawed/htmLawed_README.htm))
-
-## issues
-For all minibord issues, please head to the **minibord Development Forum** on https://board.rainynight.city 
-
-This site also doubles as a live demo of minibord.
 
 ## license
 minibord is licensed under the AGPL-3.0 license; this means if you use a modified version of minibord on your website, you must provide your modified copy  of minibord. This is not to say you have to constantly maintain a download of your minibord version every time you make a change, but you must provide it upon request.
