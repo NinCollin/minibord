@@ -1,3 +1,6 @@
+# moved
+the repository has been moved [off of github](http://scripts.rainynight.city/gitredirect.php)
+
 # minibord
 A minimalistic PHP/MySQL bulletin-board thingy mostly worked on at night. Code may be messy due to lack of sleep.
 
